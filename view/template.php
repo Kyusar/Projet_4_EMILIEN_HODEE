@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<title><?= $title ?></title>
-		<link href="../public/css/style.css" rel="stylesheet"/>
+		<link href="public/css/style.css" rel="stylesheet"/>
 
 	</head>
 
@@ -12,10 +12,10 @@
 			<h1 class="main_title"> Jean Forteroche </h1>
 			<nav class="head_menu">
 				<ul>
-					<li> <a href="#acceuil">Acceuil</a></li>
-					<li> <a href="#bio">Biographie</a></li>
-					<li> <a href="#chapter">Chapitres</a></li>
-					<li> <a href="#contact">Contact</a></li>	
+					<li> <a href="<?= $href_acc ?>">Acceuil</a></li>
+					<li> <a href="<?= $href_bio ?>">Biographie</a></li>
+					<li> <a href="<?= $href_chapter ?>">Chapitres</a></li>
+					<li> <a href="<?= $href_contact ?>">Contact</a></li>	
 				</ul>	
 			</nav>
 		</header>
@@ -24,7 +24,7 @@
 
 		<footer>
 			<div class="social_network">
-				<a href="twitter.com"> Twitter(image) </a>
+				<a href="https://twitter.com/home"> Twitter(image) </a>
 				<a href="facebook.com"> Facebook(image) </a>
 				<a href="instagram.com"> Instagram(image) </a>
 			</div>

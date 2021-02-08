@@ -1,23 +1,49 @@
+/* Page entière */
+.page_block
+{
+    margin : auto;
+    width: 100%;
+}
+
+/* Menu en-tête */
 .head_fixe
 {
     display:flex;
-    position: fixed;
     justify-content: space-around;
+    position: fixed;
+    z-index: 1000;
     width : 100%;
-    height: 80px;
-    background-color: beige;
+    background-color: red;
     top: 0;
 	right: 0;
     left: 0;
-    z-index : 1000;
 }
+/* Navigation */ 
+.head_menu ul
+{
+    display : flex;
+}
+
+.head_menu li
+{
+    list-style-type: none;
+}
+
+.head_menu a
+{
+    text-decoration: none;
+    color: #494949;
+}
+
+/*Nom de l'auteur */
 
 .main_title
 {
     font-style: italic;
-    margin-top: 30px;
-    align-self: left;
+    margin-top: 50px;
 }
+
+/*Image de présentation */
 
 .front_image
 {
@@ -27,7 +53,6 @@
 .form_container
 {
     margin-top: 100px;
-    position: absolute;
     width: 100%;
     justify-content: center;
 }
@@ -41,4 +66,9 @@
     justify-content: space-between;
     align-items: center;
     margin-right: 30px;
+}
+
+.resume_admin
+{
+    margin-top: 100px;
 }

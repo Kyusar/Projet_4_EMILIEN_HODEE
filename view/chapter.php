@@ -1,13 +1,10 @@
 <!-- Page de sélection des chapitres -->
 <?php $title="Selection du chapitre";
-    $href_acc="../index.php";
-    $href_chapter="#";
-    $href_bio="bio.php";
-    $href_contact="contact.php"; 
 
 ob_start() ?>
     <h2 class="book_title"> Un billet pour l'alaska </h2>
     <p> Insertion via boucle des image menant aux chapitres </p>
+    <a href="index.php?action=reading"> Chapitre 1 </a>
     <!-- ?php
     while ($donnees = $chapter->fetch())
     {

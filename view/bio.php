@@ -1,9 +1,6 @@
 <!-- Page biographie -->
 <?php $title='Qui suis-je ?';
-      $href_acc="../index.php";
-      $href_chapter="chapter.php";
-      $href_bio="#";
-      $href_contact="contact.php"; 
+
 ob_start(); ?>
     <img class="front_image" src="public/images/paysage.jpg" alt="Paysage" name="paysage">
     <div class="bio_container">

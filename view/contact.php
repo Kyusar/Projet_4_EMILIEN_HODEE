@@ -1,9 +1,5 @@
 <!-- Page de ccontact -->
 <?php $title = "Formulaire de contact";
-        $href_acc ='../index.php';
-        $href_chapter="chapter.php";
-        $href_bio="bio.php";
-        $href_contact="#"; 
 
 ob_start(); ?>
     <div class="form_container">
@@ -23,7 +19,7 @@ ob_start(); ?>
                 <label for="email"> Adresse e-mail </label>
                 <input type="e.mail" name="email" id="email" placeholder="adresse@mail.com" > <br />
             <input type="text" name="message_object" id="message_object" placeholder="Objet du message"> <br />
-            <input type="textarea" name="message" id="message"  placeholder="Votre message"> <br />
+            <input type="textarea" name="message" id="message"  placeholder="Votre message" height="30px"> <br />
             <input type="submit" value="Envoyer"> 
         </form>    
     </div>

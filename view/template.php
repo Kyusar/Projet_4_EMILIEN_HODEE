@@ -2,39 +2,110 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+		<link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/cover/">
+		<link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<link href="style.css" rel="stylesheet"/>
 		<title><?= $title ?></title>
-		<link href="public/css/style.css" rel="stylesheet"/>
 
 	</head>
 
-	<body>
-		<header class="head_fixe">
-			<h1 class="main_title"> Jean Forteroche </h1>
-			<nav class="head_menu">
-				<ul>
-					<li> <a href="<?= $href_acc ?>">Acceuil</a></li>
-					<li> <a href="<?= $href_bio ?>">Biographie</a></li>
-					<li> <a href="<?= $href_chapter ?>">Chapitres</a></li>
-					<li> <a href="<?= $href_contact ?>">Contact</a></li>	
-				</ul>	
-			</nav>
-		</header>
+	<body class="text-center">
+		<div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+			<header class="masthead mr-auto ml-auto mb-auto">
+				<div class="inner">
+					<h3 class="masthead-brand">Jean Forteroche</h3>
+					<nav class="nav nav-masthead justify-content-center">
+						<a class="nav-link active text-white" href="index.php">Acceuil</a>
+						<a class="nav-link text-white" href="index.php?action=bio">Biographie</a>
+						<a class="nav-link text-white" href="index.php?action=chapter">Chapitres</a>
+						<a class="nav-link text-white" href="index.php?action=contact">Contact</a>
+					</nav>
+				</div>
+			</header>
+			<main role="main" class="inner cover">
+				<h1 class="cover-heading">Un billet pour l'Alaska</h1>
+				<p class="lead"> Une nouvelle façon de lire </p>
+				<p class="lead"><a href="index.php?action=chapter.php" class="btn btn-lg btn-secondary">Commencer</a></p>
+			</main>
+			<footer class="mastfoot mt-auto">
+				<div class='inner'>
+					<p> Site de Jean Forteroche, by Emilien. </p>
+				</div>
+			</footer>
+		</div>
 
-		<?= $content ?>
-
-		<footer>
-			<div class="social_network">
-				<a href="https://twitter.com/home"> Twitter(image) </a>
-				<a href="facebook.com"> Facebook(image) </a>
-				<a href="instagram.com"> Instagram(image) </a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<!--
+		<div class="row page-color">
+				<nav class="col navbar navbar-expand-lg text-center">
+					<a class="navbar-brand text-uppercase" href="index.php"> Jean Forteroche </a> 
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div id="navbarContent" class="collapse navbar-collapse">
+						<ul class="navbar-nav justify-content-end navbar-collapse">
+							<li class="nav-item active"> <a class="nav-link" href="index.php">Acceuil</a></li>
+							<li class="nav-item"> <a class="nav-link" href="index.php?action=bio">Biographie</a></li>
+							<li class="nav-item"> <a class="nav-link" href="index.php?action=chapter">Chapitres</a></li>
+							<li class="nav-item"> <a class="nav-link" href="index.php?action=contact">Contact</a></li>	
+						</ul>	
+					</div>
+				</nav>
 			</div>
-			<br />
-			<div class="contact">
-				Contact panel
-			</div>	
-			<br />
-			<div class="admin_connexion">
-				Connexion admin
-			</div>
+			
+			<?= $content ?>
+				
+			<footer class="row page-color">
+					<div class="col-4">
+						<a href="https://twitter.com/home"> <img src="public/images/twitter.png" alt="twitter" name="twitter"> </a>
+						<a href="facebook.com"> <img src="public/images/facebook.png" alt="facebook" name="facebook"> </a>
+						<a href="instagram.com"> <img src="public/images/instagram.png" alt="instagram" name="instagram"> </a>
+					</div>
+					<div class="col-4">
+						<a href="index.php?action=contact"> Contact panel </a>
+					</div>
+					<div class="col-4">
+						<a href="index.php?action=connexion">Connexion admin</a>
+					</div>
+			</footer>
+		</div>	-->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 	</body>
 </html>

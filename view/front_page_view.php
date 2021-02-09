@@ -3,21 +3,11 @@
 
 ob_start(); ?>
     
-    <div id="home-header" class="row">
-        <div class="col text-center"> 
-            <h1 class="main-title"><u> Un billet pour l'alaska </u></h2>
-        </div>
-    </div> 
-    <div class="row">
-        <div id="gatcha" class="col text-center">
-            Une nouvelle façon de lire
-        </div>
-    </div>
-    <div class="row">
-        <div class="col text-center">
-            Commencer la lecture !
-        </div>    
-    </div>
+    <main role="main" class="inner cover">
+		<h1 class="cover-heading">Un billet pour l'Alaska</h1>
+		<p class="lead"> Une nouvelle façon de lire </p>
+		<p class="lead"><a href="index.php?action=chapter" class="btn btn-lg btn-secondary">Commencer</a></p>
+	</main>
 
     
 

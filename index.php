@@ -26,6 +26,10 @@ try
         {
             require('view/reading_page.php');
         }
+        elseif ($_GET['action'] == "admin")
+        {
+            require('view/admin.php');
+        }
     }
     else
     {

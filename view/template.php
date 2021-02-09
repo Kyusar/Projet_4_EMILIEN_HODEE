@@ -22,14 +22,11 @@
 						<a class="nav-link text-white" href="index.php?action=bio">Biographie</a>
 						<a class="nav-link text-white" href="index.php?action=chapter">Chapitres</a>
 						<a class="nav-link text-white" href="index.php?action=contact">Contact</a>
+						<a class="nav-link text-white" href="index.php?action=connexion">Connexion</a>
 					</nav>
 				</div>
 			</header>
-			<main role="main" class="inner cover">
-				<h1 class="cover-heading">Un billet pour l'Alaska</h1>
-				<p class="lead"> Une nouvelle façon de lire </p>
-				<p class="lead"><a href="index.php?action=chapter.php" class="btn btn-lg btn-secondary">Commencer</a></p>
-			</main>
+			<?= $content ?>
 			<footer class="mastfoot mt-auto">
 				<div class='inner'>
 					<p> Site de Jean Forteroche, by Emilien. </p>
@@ -38,33 +35,7 @@
 		</div>
 
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
 		
 		
 		
@@ -87,7 +58,7 @@
 				</nav>
 			</div>
 			
-			<?= $content ?>
+			
 				
 			<footer class="row page-color">
 					<div class="col-4">

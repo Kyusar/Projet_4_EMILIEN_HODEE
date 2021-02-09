@@ -1,12 +1,13 @@
 <!-- Page d'accueil -->
 <?php $title = 'Jean forteroche - Un billet pour l\'Alaska';
+$main_title="Jean Forteroche";
 
 ob_start(); ?>
     
     <main role="main" class="inner cover">
-		<h1 class="cover-heading">Un billet pour l'Alaska</h1>
+		<h1 class="cover-heading" style="font-size : 4em;">Un billet pour l'Alaska</h1>
 		<p class="lead"> Une nouvelle façon de lire </p>
-		<p class="lead"><a href="index.php?action=chapter" class="btn btn-lg btn-secondary">Commencer</a></p>
+		<p class="lead"><a href="index.php?action=chapter" class="btn btn-lg bg-info text-white">Commencer</a></p>
 	</main>
 
     

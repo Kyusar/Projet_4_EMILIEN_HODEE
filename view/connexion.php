@@ -1,5 +1,6 @@
 <!-- Page de connexion à l'espace administrateur -->
 <?php $title = "Connexion";
+$main_title="Jean Forteroche";
 
 ob_start(); ?>
     <div class="form_container">

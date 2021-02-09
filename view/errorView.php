@@ -1,5 +1,5 @@
 <?php $title = 'Affichage d\'erreur';
-
+$main_title="Jean Forteroche";
 ob_start(); ?>
 
 <h1> Une erreur est survenu lors de l'exécution du script </h1>

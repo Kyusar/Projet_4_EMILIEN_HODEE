@@ -1,5 +1,6 @@
 <!-- Page de sélection des chapitres -->
 <?php $title="Selection du chapitre";
+$main_title="Jean Forteroche";
 
 ob_start() ?>
     <h2 class="book_title"> Un billet pour l'alaska </h2>

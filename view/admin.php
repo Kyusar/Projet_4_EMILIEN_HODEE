@@ -1,5 +1,6 @@
 <!-- Page de gestion des billet -->
 <?php $title="Menu de gestion";
+$main_title="Jean Forteroche";
 
 ob_start(); ?>
     <div class="resume_admin"> 

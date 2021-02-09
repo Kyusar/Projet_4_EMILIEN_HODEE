@@ -7,16 +7,15 @@
 		<link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/cover/">
 		<link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-		<link href="style.css" rel="stylesheet"/>
+		<link href="styles.css" rel="stylesheet"/>
 		<title><?= $title ?></title>
-
 	</head>
 
 	<body class="text-center">
 		<div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
 			<header class="masthead mr-auto ml-auto mb-auto">
 				<div class="inner">
-					<h3 class="masthead-brand">Jean Forteroche</h3>
+					<h3 class="masthead-brand"><?= $main_title ?></h3>
 					<nav class="nav nav-masthead justify-content-center">
 						<a class="nav-link active text-white" href="index.php">Acceuil</a>
 						<a class="nav-link text-white" href="index.php?action=bio">Biographie</a>
@@ -26,7 +25,9 @@
 					</nav>
 				</div>
 			</header>
-			<?= $content ?>
+			
+				<?= $content ?>
+			
 			<footer class="mastfoot mt-auto">
 				<div class='inner'>
 					<p> Site de Jean Forteroche, by Emilien. </p>

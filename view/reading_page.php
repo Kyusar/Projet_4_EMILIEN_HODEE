@@ -1,6 +1,6 @@
 <!-- Page de lecture de chapitre -->
 <?php $title="Nom du chapitre";
-
+$main_title="Jean Forteroche";
 ob_start(); ?>
 
     <h1 class="chapter title"> Titre du chapitre </h1>

@@ -12,7 +12,7 @@ try
         }
         elseif ($_GET['action'] == 'chapter')
         {
-            require('view/chapter.php');
+            listChapter();
         }
         elseif ($_GET['action'] == "contact")
         {
@@ -24,12 +24,43 @@ try
         }
         elseif ($_GET['action'] == "reading")
         {
-            require('view/reading_page.php');
+            if(isset($_GET['id']) && $_GET['id'] > 0)
+            {
+                chapter();
+            }
+            else
+            {
+                throw new Exception('Aucun identifiant de chapitre envoyé');
+            }
+                
+        }
+        elseif ($_GET['action'] == "createChapter")
+        {
+            require('view/createChapter.php');
+        }
+        elseif ($_GET['action'] == "addChapter")
+        {
+            if (isset($_GET['id']) && $_GET['id'] > 0)
+            {
+                if(!empty($_POST['title']) && !empty($_POST['content']))
+                {
+                    addChapter($_GET['id'], $_POST['title'], $_POST['content']);
+                }
+                else
+                {
+                    throw new Exception('Tous les champs ne sont pas remplis !');
+                }
+            }
+            else
+            {
+                throw new Exception('Aucun identifiant de chapitre envoyé');
+            }
         }
         elseif ($_GET['action'] == "admin")
         {
             require('view/admin.php');
         }
+
     }
     else
     {

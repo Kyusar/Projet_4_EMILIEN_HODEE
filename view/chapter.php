@@ -1,6 +1,6 @@
 <!-- Page de sélection des chapitres -->
-<?php $title="Selection du chapitre";
-$main_title="Jean Forteroche";
+<?php $title="Sélection du chapitre";
+$main_title="Sélection du chapitre";
 
 ob_start(); ?>
         <div class="card-deck">
@@ -8,16 +8,21 @@ ob_start(); ?>
             while ($donnees = $chapters->fetch())
             {
             ?>
-                <div class="card text-white bg-dark border-secondary">
-                    <img class="card-img-top" src="public/images/lac_glacier.jpg" alt="lac_glaicer_alaska" >
-                    <div class="card-body">
-                        <h5 class="card-title"> Chapitre <?php echo($donnees['id'])?> </h5>
-                        <p class="card-text"> <?php echo htmlspecialchars($donnees['title']) ?> </p>
-                        <a href="index.php?id=<?= $donnees['id'] ?>&action=reading" class="card-link"> Lire </a>
+                    <div class="card text-white bg-dark border-secondary">
+                        <img class="card-img-top" src="public/images/lac_glacier.jpg" alt="lac_glaicer_alaska" >
+                        <div class="card-body">
+                            <h5 class="card-title"> Chapitre <?php echo($donnees['id'])?> </h5>
+                            <p class="card-text"> <?php echo htmlspecialchars($donnees['title']) ?> </p>
+                            <a href="index.php?id=<?= $donnees['id'] ?>&action=reading" class="btn btn-primary"> Lire </a>
+                        </div>
                     </div>
-                </div>
-            <br />
-            <?php
+                <?php
+                if ($donnees['id'] === 3)
+                {
+                ?>
+                    <br />
+                <?php
+                }
             }
             $chapters->closeCursor();
             ?>

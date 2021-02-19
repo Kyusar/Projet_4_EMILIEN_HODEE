@@ -20,6 +20,7 @@ html, body {
  {
      margin-top: 50px;
      height: inherit;
+     
  }
 
  #nav_main
@@ -76,6 +77,13 @@ input
  {
      text-align: justify;
  }
+
+ /*Creating page */
+
+.form_creation
+{
+    height: 100%;
+}
 /* Responsive */ 
 @media (max-width: 768px) 
 {

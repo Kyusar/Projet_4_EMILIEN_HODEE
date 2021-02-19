@@ -8,12 +8,12 @@ class ChapterManager extends Manager
     {
         $db = $this->dbConnect();
 
-        $req = $db->query('SELECT id, title FROM chapter');
+        $req = $db->query('SELECT id, title, content FROM chapter');
 
         return $req;
     }
 
-    public function readChapter($chapterId)
+    public function getChapters($chapterId)
     {
         $db = $this->dbConnect();
 
@@ -27,9 +27,18 @@ class ChapterManager extends Manager
     public function createChapter($chapterId, $title, $content)
     {
         $db = $this->dbConnect();
-        $chapter = $db->prepare('INSERT INTO chapter(id, title, content, date_creation) VALUES(?, ?, ?, NOW()');
+        $chapter = $db->prepare('INSERT INTO chapter(id, title, content, date_creation) VALUES(?, ?, ?, NOW())');
         $newChapter = $chapter->execute(array($chapterId, $title, $content));
 
         return $newChapter;
+    }
+
+    public function updateChapter($title, $content, $chapterId)
+    {
+        $db = $this->dbConnect();
+        $chapter = $db->prepare('UPDATE chapter SET title = ?, content = ? WHERE id = ?');
+        $chapter->execute(array($title, $content, $chapterId));
+
+        return $chapter;
     }
 }

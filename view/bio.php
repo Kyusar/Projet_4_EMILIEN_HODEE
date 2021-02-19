@@ -8,15 +8,15 @@ ob_start(); ?>
             height : initial;
         }
     </style>
-    <div class="container" id="main_section">
+    <div class="container main_section">
         <div class="col">
-            <h2 class="name_author"><u> Jean Forteroche - Saltimbanque des mots </u></h2>
+            <h2 class="name_author"><u> Jean Forteroche :  Saltimbanque des mots </u></h2>
         </div>
         <div class="row">
-            <div class="col-6">
+            <div class="col-lg-6">
                 <img class="front_image" src="public/images/forteroche.jpg" alt="Paysage" name="paysage">
             </div>
-            <div class="col-6 text_bio_1">
+            <div class="col-lg-6 text_bio_1">
                 <p class="lead">
                         Il est de notoriété publique que Jean Forteroche n'aime guère parler de lui, qui plus est à la troisième personne du singulier.
                         Seulement, dans la mesure où la page que vous parcourez s'intitule sobrement "Biographie", nous serions bien embêtés si je décidais de ne pas honorer le contrat qui vous a précisément amené ici. J'en suis tout à fait capable, n'en doutez pas, cher lecteur avisé. Et je pourrais continuer des heures durant à deviser sur le bien-fondé de ma pudeur, ou encore sur le fameux contrat qui m'oblige à temporairement la souiller.  <br />   

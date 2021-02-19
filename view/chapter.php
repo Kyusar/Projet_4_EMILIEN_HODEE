@@ -2,27 +2,26 @@
 <?php $title="Selection du chapitre";
 $main_title="Jean Forteroche";
 
-ob_start() ?>
-    <h2 class="book_title"> Un billet pour l'alaska </h2>
-    <p> Insertion via boucle des image menant aux chapitres </p>
-    <a href="index.php?action=reading"> Chapitre 1 </a>
-    <!-- ?php
-    while ($donnees = $chapter->fetch())
-    {
-    ?>
-        <div class="chapter_container">
-            <img class="chapter_background" src="#" alt="#">
-            <a href="#">
-                <h3 class="title_chapitre"> ?= $donnees['chapitre_id'] ?> </h3>
-                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
-                                    dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
-            </a>
-        </div>  
-    ?php  
-    }
-    $chapter->closeCursor();
-    ?> -->
-    <?php $content = ob_get_clean(); ?>
-    <?php require('template.php'); ?>
+ob_start(); ?>
+        <div class="card-deck">
+            <?php
+            while ($donnees = $chapters->fetch())
+            {
+            ?>
+                <div class="card text-white bg-dark border-secondary">
+                    <img class="card-img-top" src="public/images/lac_glacier.jpg" alt="lac_glaicer_alaska" >
+                    <div class="card-body">
+                        <h5 class="card-title"> Chapitre <?php echo($donnees['id'])?> </h5>
+                        <p class="card-text"> <?php echo htmlspecialchars($donnees['title']) ?> </p>
+                        <a href="index.php?id=<?= $donnees['id'] ?>&action=reading" class="card-link"> Lire </a>
+                    </div>
+                </div>
+            <br />
+            <?php
+            }
+            $chapters->closeCursor();
+            ?>
+        </div>
+
+<?php $content = ob_get_clean(); ?>
+<?php require('template.php'); ?>

@@ -7,7 +7,8 @@
 		<link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/cover/">
 		<link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-		<link href="styles.css" rel="stylesheet"/>
+		<script src="https://cdn.tiny.cloud/1/3klpreepms2aw95tlln6oab3q54lze6yxv0dzhop2m74wadg/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+		<link href="public/css/styles.css" rel="stylesheet"/>
 		<title><?= $title ?></title>
 	</head>
 
@@ -16,7 +17,7 @@
 			<header class="masthead mr-auto ml-auto mb-auto">
 				<div class="inner">
 					<h3 class="masthead-brand"><?= $main_title ?></h3>
-					<nav class="nav nav-masthead justify-content-center">
+					<nav class="nav nav-masthead justify-content-center" id="nav_main">
 						<a class="nav-link active text-white" href="index.php">Acceuil</a>
 						<a class="nav-link text-white" href="index.php?action=bio">Biographie</a>
 						<a class="nav-link text-white" href="index.php?action=chapter">Chapitres</a>
@@ -34,47 +35,6 @@
 				</div>
 			</footer>
 		</div>
-
-		
-
-		
-		
-		
-		
-		<!--
-		<div class="row page-color">
-				<nav class="col navbar navbar-expand-lg text-center">
-					<a class="navbar-brand text-uppercase" href="index.php"> Jean Forteroche </a> 
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
-						<span class="navbar-toggler-icon"></span>
-					</button>
-					<div id="navbarContent" class="collapse navbar-collapse">
-						<ul class="navbar-nav justify-content-end navbar-collapse">
-							<li class="nav-item active"> <a class="nav-link" href="index.php">Acceuil</a></li>
-							<li class="nav-item"> <a class="nav-link" href="index.php?action=bio">Biographie</a></li>
-							<li class="nav-item"> <a class="nav-link" href="index.php?action=chapter">Chapitres</a></li>
-							<li class="nav-item"> <a class="nav-link" href="index.php?action=contact">Contact</a></li>	
-						</ul>	
-					</div>
-				</nav>
-			</div>
-			
-			
-				
-			<footer class="row page-color">
-					<div class="col-4">
-						<a href="https://twitter.com/home"> <img src="public/images/twitter.png" alt="twitter" name="twitter"> </a>
-						<a href="facebook.com"> <img src="public/images/facebook.png" alt="facebook" name="facebook"> </a>
-						<a href="instagram.com"> <img src="public/images/instagram.png" alt="instagram" name="instagram"> </a>
-					</div>
-					<div class="col-4">
-						<a href="index.php?action=contact"> Contact panel </a>
-					</div>
-					<div class="col-4">
-						<a href="index.php?action=connexion">Connexion admin</a>
-					</div>
-			</footer>
-		</div>	-->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

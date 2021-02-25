@@ -7,6 +7,12 @@ ob_start(); ?>
             <?php
             while ($donnees = $chapters->fetch())
             {
+                if ($donnees['id'] === 3 )
+                {
+                ?>
+                    <br />
+                <?php
+                }
             ?>
                     <div class="card text-white bg-dark border-secondary">
                         <img class="card-img-top" src="public/images/lac_glacier.jpg" alt="lac_glaicer_alaska" >
@@ -16,13 +22,8 @@ ob_start(); ?>
                             <a href="index.php?id=<?= $donnees['id'] ?>&action=reading" class="btn btn-primary"> Lire </a>
                         </div>
                     </div>
-                <?php
-                if ($donnees['id'] === 3)
-                {
-                ?>
-                    <br />
-                <?php
-                }
+            <?php
+                
             }
             $chapters->closeCursor();
             ?>

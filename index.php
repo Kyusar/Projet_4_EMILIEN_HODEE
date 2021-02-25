@@ -1,7 +1,8 @@
 <?php 
 $title = 'Accueil';
 
-require('controller/controller.php');
+require('controller/ChapterController.php');
+require('controller/CommentController.php');
 try 
 {
     if (isset($_GET['action']))
@@ -26,7 +27,7 @@ try
         {
             if(isset($_GET['id']) && $_GET['id'] > 0)
             {
-                chapter();
+                chapter($_GET['id']);
             }
             else
             {
@@ -34,6 +35,60 @@ try
             }
                 
         }
+        elseif ($_GET['action'] == "addComment")
+        {
+            if(isset($_GET['id']) && $_GET['id'] > 0)
+            {
+                if(!empty($_POST['author']) && !empty($_POST['comment']))
+                {
+                    addComment($_GET['id'], $_POST['author'], $_POST['comment']);
+                }
+                else
+                {
+                    throw new Exception('Tous les champs du commentaire ne sont pas remplis !');
+                }
+            }
+            else
+            {
+                throw new Exception('Ce commentaire n\'est lié à aucun chapitre');
+            }
+        }
+        elseif ($_GET['action'] == "admin")
+        {
+            if (isset($_GET['id']) && $_GET['id'] > 0)
+            {
+                treatedComment($_GET['id']);
+            }
+            else
+            {
+                signaledComment();
+            }
+        }
+        elseif ($_GET['action'] == 'signaledComment')
+        {
+            if (isset($_GET['id']) && $_GET['id'] > 0)
+            {
+                signaledAComment($_GET['id']);
+            }
+            else
+            {
+                throw new Exception("Aucun commentaire sélectionner");
+                
+            }
+        }
+        elseif ($_GET['action'] == 'deleteComment')
+        {
+            if (isset($_GET['id']) && $_GET['id'] > 0)
+            {
+                deleteComment($_GET['id']);
+            }
+            else
+            {
+                throw new Exception("Aucun commentaire sélectionner pour suppresion");
+            }
+        }
+        /* Gestion des chapitres */ 
+
         elseif ($_GET['action'] == "createChapter")
         {
             require('view/createChapter.php');
@@ -53,7 +108,7 @@ try
         {
             if(isset($_POST['id']) && $_POST['id'] > 0)
             {
-                chapterModifView();
+                existingChapter($_POST['id']);
             }
             else
             {
@@ -72,11 +127,18 @@ try
                 throw new Exception('Tous les champs ne sont pas remplis !');
             }
         }
-
-        elseif ($_GET['action'] == "admin")
+        elseif ($_GET['action'] == "deleteChapter")
         {
-            require('view/admin.php');
+            if(isset($_POST['id']) && $_POST['id'] > 0)
+            {
+                deletedChapter($_POST['id']);
+            }
+            else
+            {
+                throw new Exception('Veuillez choisir un chapitre valide à supprimer');
+            }
         }
+
 
     }
     else

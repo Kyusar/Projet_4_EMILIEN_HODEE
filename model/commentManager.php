@@ -3,47 +3,56 @@ require_once("Manager.php");
 
 class CommentManager extends Manager
 {  
-    public function getComments($postID)
+    public function getComments($commentId)
     {
         $db = $this->dbConnect();
 
-        $comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE id_comment = ?ORBER BY comment_date DESC');
-        $comments->execute(array($postId));
+        $comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin\') AS comment_date_fr FROM comments WHERE id_comment = ? ORDER BY comment_date DESC');
+        $comments->execute(array($commentId));
 
         return $comments;
     }
 
-    public function postComment($postId, $author, $comment)
+    public function deleteAComment($Id)
+    {
+        $db = $this->dbConnect();
+
+        $comments = $db->prepare('DELETE FROM comments WHERE id = ?');
+        $comments->execute(array($Id));
+
+        return $comments;
+    }
+
+    public function postComment($chapterId, $author, $comment)
     {
         $db = $this->dbConnect();
         $comments = $db->prepare('INSERT INTO comments(id_comment, author, comment, comment_date) Values(?, ?, ?, NOW())');
-        $affectedLines = $comments->execute(array($postId, $author, $comment));
+        $affectedLines = $comments->execute(array($chapterId, $author, $comment));
 
         return $affectedLines;
     }
 
-    public function getComment($Id)
+    public function getSignaledComment()
     {
         $db = $this->dbConnect();
-        $comment = $db->prepare('SELECT id, author, comment FROM comments WHERE id=?');
-        $comment->execute(array($Id));
+        $signaledComment = $db->query('SELECT id, author, comment, signaled_comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin\') AS comment_date_fr FROM comments WHERE signaled_comment IS NOT NULL');
 
-        return $comment;
+        return $signaledComment;
     }
 
-    public function modifComment($modifs, $commentId)
+    public function treatedSignaledComment($Id)
     {
         $db = $this->dbConnect();
-        $modif = $db->prepare('UPDATE comments SET comment = ? WHERE id = ?');
-        $modif->execute(array($modifs, $commentId));
+        $signal = $db->prepare('UPDATE comments SET signaled_comment = NULL WHERE id = ?');
+        $signal->execute(array($Id));
 
-        return $modif;
+        return $signal;
     }
 
-    public function signaledComment($Id)
+    public function signalAComment($Id)
     {
         $db = $this->dbConnect();
-        $signal = $db->prepare('UPDATE comments SET signaled_commment = TRUE');
+        $signal = $db->prepare('UPDATE comments SET signaled_comment = 0 WHERE id = ?');
         $signal->execute(array($Id));
 
         return $signal;

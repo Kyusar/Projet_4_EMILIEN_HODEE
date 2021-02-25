@@ -11,11 +11,13 @@ function listChapter()
     require('view/chapter.php');
 }
 
-function chapter()
+function chapter($chapterId)
 {
     $chapterManager = new chapterManager();
+    $commentManager = new commentManager();
 
-    $chapter = $chapterManager->getChapters($_GET['id']);
+    $chapter = $chapterManager->getChapters($chapterId);
+    $comments = $commentManager->getComments($chapterId);
 
     require('view/reading_page.php');
 }
@@ -42,8 +44,26 @@ function chapterModifView()
     $chapterManager = new chapterManager();
 
     $chapter = $chapterManager->getChapters($_POST['id']);
-
+    
     require('view/modifyChapter.php');
+    
+}
+
+function existingChapter($Id)
+{
+    $chapterManager = new chapterManager();
+
+    $existingChapter = $chapterManager->chapterExist($_POST['id']);
+
+    if ($existingChapter === false)
+    {
+        throw new Exception('Ce chapitre n\'existe pas');
+        
+    }
+    else
+    {
+        chapterModifView();
+    }
 }
 
 function modifiedChapter($title, $content, $chapterId)
@@ -61,19 +81,12 @@ function modifiedChapter($title, $content, $chapterId)
         header('Location: index.php?action=reading&id=' . $chapterId);
     }
 }
-/*
-function modifComment($title, $content, $chapterId)
+
+function deletedChapter($Id)
 {
-    $chapterModif = new chapterManager();
+    $chapterManager = new chapterManager();
 
-    $modif = $chapterModif->modifyChapter($title, $content, $chapterId);
+    $delete = $chapterManager->deleteChapter($Id);
 
-    if ($modif === false)
-    {
-        throw new Exception('Impossible de modifier le chapitre !');
-    }
-    else
-    {
-        header('Location : index.php?action=reading&id=' . $chapterId);
-    }
-}*/
+    header('Location: index.php?action=admin');
+}

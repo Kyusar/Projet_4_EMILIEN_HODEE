@@ -8,7 +8,7 @@ ob_start(); ?>
         <form method="post" action="index.php?action=addChapter" id="chapter_creation">
           <div>
             <label for="id"> Numéro du chapitre  </label> <br />
-            <input type="number" name="id" id="id"/>
+            <input type="number" name="id" id="id" placeholder=" N° du chapitre"/>
           </div> <br />
           <div>
             <label for="title"> Titre du chapitre :</label> <br />

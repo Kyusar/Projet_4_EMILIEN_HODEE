@@ -8,7 +8,7 @@ class ChapterManager extends Manager
     {
         $db = $this->dbConnect();
 
-        $req = $db->query('SELECT id, title, content FROM chapter');
+        $req = $db->query('SELECT id, title, content FROM chapter ORDER BY id');
 
         return $req;
     }
@@ -17,7 +17,7 @@ class ChapterManager extends Manager
     {
         $db = $this->dbConnect();
 
-        $req = $db->prepare('SELECT id, title, content FROM chapter WHERE id = ?');
+        $req = $db->prepare('SELECT id, title, content FROM chapter  WHERE id = ?');
         $req->execute(array($chapterId));
         $chapter = $req->fetch();
 
@@ -40,5 +40,24 @@ class ChapterManager extends Manager
         $chapter->execute(array($title, $content, $chapterId));
 
         return $chapter;
+    }
+
+    public function chapterExist($Id)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('SELECT id FROM chapter WHERE id = ?');
+        $req->execute(array($Id));
+        $chapter = $req->fetch();
+
+        return $chapter;
+    }
+
+    public function deleteChapter($Id)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('DELETE FROM chapter WHERE id = ?');
+        $req->execute(array($Id));
+
+        return $req;        
     }
 }

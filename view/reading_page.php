@@ -9,9 +9,9 @@ ob_start(); ?>
     </style>
     <div class="container main_section">
         <div class="row">
-            <div class="col">
-                <h1> <?= htmlspecialchars($chapter['title']) ?> </h1>
-                <p id="chapter_align"> <?= $chapter['content'] ?> </p> 
+            <div class="col chapter-align">
+                <h1 class="text-center"> <?= htmlspecialchars($chapter['title']) ?> </h1>
+                <p class="lead"> <?= $chapter['content'] ?> </p> 
             </div>
         </div>
 
@@ -35,6 +35,7 @@ ob_start(); ?>
                         </div>
                 <?php 
                     }
+                    $comments->closeCursor();
                 ?>
                 
                 <br /> <br />

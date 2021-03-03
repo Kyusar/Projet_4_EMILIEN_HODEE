@@ -11,7 +11,7 @@ ob_start(); ?>
             </div>
             <div>
                 <label for="password"> Mot de passe : </label> <br />
-                <input type="text" id="password" name="password" placeholder=" Mot de passe" /> <br />
+                <input type="password" id="password" name="password" placeholder=" Mot de passe" /> <br />
             </div>
             <div>
                 <br />

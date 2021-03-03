@@ -7,7 +7,7 @@ ob_start(); ?>
 
 <strong><?= $errorMessage; ?></strong>
 </p>
-<a href="index.php"> <input type="button" id="button" value="Revenir à l'acceuil"/> </a>
+<a href=javascript:history.go(-1)> <input type="button" id="button" value="Revenir à la page précédente"/> </a>
 
 <?php $content = ob_get_clean(); ?>
 <?php require('template.php'); ?>

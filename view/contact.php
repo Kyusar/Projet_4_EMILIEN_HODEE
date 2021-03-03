@@ -21,7 +21,7 @@ ob_start(); ?>
                     <div class="row">
                         <div class="col">
                             <label for="email"> Adresse e-mail </label> <br />
-                            <input type="e.mail" name="email" id="email" placeholder=" adresse@mail.com" > <br />
+                            <input type="mail" name="email" id="email" placeholder=" adresse@mail.com" > <br />
                             <label for="message_object"> Objet du message </label> <br />
                             <input type="text" name="message_object" id="message_object" placeholder=" Objet du message"> <br />
                             <label for="message"> Votre message </label> <br />

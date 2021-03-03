@@ -14,6 +14,11 @@ ob_start(); ?>
             <label for="title"> Titre du chapitre :</label> <br />
             <input type="text" name="title" placeholder=" Titre du chapitre"/> 
           </div> <br/>
+          <div>
+            <label for="image"> Titre du chapitre :</label> <br />
+            <input type="hidden" name="max_file_size" value="250000"/>
+            <input type="file" name="image" placeholder=" Envoyer une image"/> 
+          </div> <br/>
           <textarea name="content" id="content">
             Débuter l'écriture ici.
           </textarea> <br />

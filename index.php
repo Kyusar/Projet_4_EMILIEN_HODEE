@@ -1,8 +1,10 @@
 <?php 
 $title = 'Accueil';
+session_start();
 
 require('controller/ChapterController.php');
 require('controller/CommentController.php');
+require('controller/AdminController.php');
 try 
 {
     if (isset($_GET['action']))
@@ -19,10 +21,6 @@ try
         {
             require('view/contact.php');
         }
-        elseif ($_GET['action'] == "connexion")
-        {
-            require('view/connexion.php');
-        }
         elseif ($_GET['action'] == "reading")
         {
             if(isset($_GET['id']) && $_GET['id'] > 0)
@@ -35,6 +33,7 @@ try
             }
                 
         }
+        /* Section commentaire */ 
         elseif ($_GET['action'] == "addComment")
         {
             if(isset($_GET['id']) && $_GET['id'] > 0)
@@ -51,17 +50,6 @@ try
             else
             {
                 throw new Exception('Ce commentaire n\'est lié à aucun chapitre');
-            }
-        }
-        elseif ($_GET['action'] == "admin")
-        {
-            if (isset($_GET['id']) && $_GET['id'] > 0)
-            {
-                treatedComment($_GET['id']);
-            }
-            else
-            {
-                signaledComment();
             }
         }
         elseif ($_GET['action'] == 'signaledComment')
@@ -87,6 +75,49 @@ try
                 throw new Exception("Aucun commentaire sélectionner pour suppresion");
             }
         }
+
+        /* Section connexion */
+
+        elseif ($_GET['action'] == "admin")
+        { 
+
+            if (!empty($_POST['password']) && !empty($_POST['username']))
+            {
+                verifyAccess($_POST['username'], $_POST['password']);
+            }
+            elseif (!empty($_SESSION['username']) && !empty($_SESSION['password']))
+            {
+                if (isset($_GET['id']) && $_GET['id'] > 0)
+                {
+                    treatedComment($_GET['id']);
+                }
+                else
+                {
+                    signaledComment();
+                }
+                
+            }
+            else
+            {
+                throw new Exception ('Veuillez remplir tout les champs.');
+            }
+        }
+        elseif ($_GET['action'] == "connexion")
+        {
+            if (isset($_SESSION['username']) && isset($_SESSION['password']))
+            {
+                signaledComment();
+            }
+            else 
+            {
+                require('view/connexion.php');
+            }
+        }
+        elseif ($_GET['action'] == 'disconnect')
+        {
+            disconnected();
+        }
+        
         /* Gestion des chapitres */ 
 
         elseif ($_GET['action'] == "createChapter")
@@ -138,7 +169,10 @@ try
                 throw new Exception('Veuillez choisir un chapitre valide à supprimer');
             }
         }
-
+        /*elseif ($_GET['action'] == "before")
+        {
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
+        }*/
 
     }
     else

@@ -50,6 +50,22 @@ function signaledAComment($Id)
 
     header('Location: index.php?action=reading&id=' . $_GET['chapter']);
 }
+
+function adminSelect($Id)
+{
+    $commentManager = new commentManager();
+    $treatement = $commentManager->treatedSignaledComment($Id);
+    $signaled = $commentManager->getSignaledComment();
+
+    if ($_GET['action'] == 'admin')
+    {
+        require('view/admin.php');
+    }
+    else
+    {
+        header('Location: index.php?action=admin');
+    }
+}
 /*
 function modifComment($title, $content, $chapterId)
 {

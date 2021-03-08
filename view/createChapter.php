@@ -5,9 +5,9 @@ ob_start(); ?>
   <div class="container main_section">
     <div class="row form_creation">
       <div class="col">
-        <form method="post" action="index.php?action=addChapter" id="chapter_creation">
+        <form enctype="multipart/form-data" method="post" action="index.php?action=addChapter" id="chapter_creation">
           <div>
-            <label for="id"> Numéro du chapitre  </label> <br />
+            <label for="id"> Numéro du chapitre : </label> <br />
             <input type="number" name="id" id="id" placeholder=" N° du chapitre"/>
           </div> <br />
           <div>
@@ -15,8 +15,7 @@ ob_start(); ?>
             <input type="text" name="title" placeholder=" Titre du chapitre"/> 
           </div> <br/>
           <div>
-            <label for="image"> Titre du chapitre :</label> <br />
-            <input type="hidden" name="max_file_size" value="250000"/>
+            <label for="image"> Ajouter l'image du chapitre :</label> <br />
             <input type="file" name="image" placeholder=" Envoyer une image"/> 
           </div> <br/>
           <textarea name="content" id="content">

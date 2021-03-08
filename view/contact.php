@@ -6,7 +6,7 @@ ob_start(); ?>
     <div class="container">
         <div class="row">
             <div class="col">
-                <form method="post" action="index.php?action=contact">
+                <form method="post" action="index.php?action=contactFake">
                     <div class="row">
                         <div class="col-lg-4 offset-lg-2">
                             <label for="name"> Prénom </label> <br />

@@ -8,9 +8,23 @@ class ChapterManager extends Manager
     {
         $db = $this->dbConnect();
 
-        $req = $db->query('SELECT id, title, content FROM chapter ORDER BY id');
+        $req = $db->query('SELECT chapter.id, title, content, img_name, img_desc, DATE_FORMAT(date_creation, \'%d/%m/%Y\') AS chapter_date
+        FROM chapter 
+        LEFT JOIN images 
+        ON chapter.id = images.img_id_chapter 
+        ORDER BY id');
 
         return $req;
+    }
+
+    public function addImage($chapterId, $name, $size, $type, $description, $blob)
+    {
+        $db = $this->dbConnect();
+
+        $req = $db->prepare('INSERT INTO images(img_id_chapter, img_name, img_size, img_type, img_desc, img_blob) VALUES (?, ?, ?, ?, ?, ?)');
+        $newImage = $req->execute(array($chapterId, $name, $size, $type, $description, $blob));
+
+        return $newImage;
     }
 
     public function getChapters($chapterId)
@@ -26,6 +40,7 @@ class ChapterManager extends Manager
 
     public function createChapter($chapterId, $title, $content)
     {
+        
         $db = $this->dbConnect();
         $chapter = $db->prepare('INSERT INTO chapter(id, title, content, date_creation) VALUES(?, ?, ?, NOW())');
         $newChapter = $chapter->execute(array($chapterId, $title, $content));
@@ -55,7 +70,7 @@ class ChapterManager extends Manager
     public function deleteChapter($Id)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('DELETE FROM chapter WHERE id = ?');
+        $req = $db->prepare('DELETE FROM chapter, images USING chapter LEFT JOIN images ON chapter.id = images.img_id_chapter WHERE chapter.id= ?');
         $req->execute(array($Id));
 
         return $req;        

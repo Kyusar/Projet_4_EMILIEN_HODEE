@@ -66,19 +66,3 @@ function adminSelect($Id)
         header('Location: index.php?action=admin');
     }
 }
-/*
-function modifComment($title, $content, $chapterId)
-{
-    $chapterModif = new chapterManager();
-
-    $modif = $chapterModif->modifyChapter($title, $content, $chapterId);
-
-    if ($modif === false)
-    {
-        throw new Exception('Impossible de modifier le chapitre !');
-    }
-    else
-    {
-        header('Location : index.php?action=reading&id=' . $chapterId);
-    }
-}*/

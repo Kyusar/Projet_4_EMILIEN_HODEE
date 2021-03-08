@@ -21,6 +21,12 @@ try
         {
             require('view/contact.php');
         }
+        /* Fake condition */
+        elseif ($_GET['action'] == 'contactFake')
+        {
+            throw new Exception ('Merci pour votre message je vous répondrais au plus vite !');
+        }
+        /* fake end */
         elseif ($_GET['action'] == "reading")
         {
             if(isset($_GET['id']) && $_GET['id'] > 0)
@@ -126,12 +132,13 @@ try
         }
         elseif ($_GET['action'] == "addChapter")
         {
-            if(!empty($_POST['id']) && !empty($_POST['title']) && !empty($_POST['content']))
+            if(!empty($_POST['id']) && !empty($_POST['title']) && !empty($_POST['content']) && isset($_FILES['image']))
             {
-                addChapter($_POST['id'], $_POST['title'], $_POST['content']);
+                addChapter($_POST['id'], $_POST['title'], $_POST['content'], $_FILES['image']);
             }
             else
             {
+            
                 throw new Exception('Tous les champs ne sont pas remplis !');
             }
         }

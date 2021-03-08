@@ -14,8 +14,6 @@ function verifyAccess($username, $password)
     {
         $_SESSION['username'] = $username;
         $_SESSION['password'] = $password;
-        echo($_SESSION['username'] . ' // ');
-        echo($_SESSION['password']);
         signaledComment();
     }
     else

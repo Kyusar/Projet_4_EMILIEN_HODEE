@@ -47,11 +47,11 @@ ob_start(); ?>
                 <h4 style="border-top : 2px solid #fff; padding-top: 10px;"> Ajouter un commentaire </h4>
                 <form method="post" action="index.php?action=addComment&amp;id=<?= $chapter['id'] ?>">
                     <div class="form-group">
-                        <label for="author">Auteur</label><br />
+                        <label for="author">Auteur : </label><br />
                         <input type="text" id="author" name="author" placeholder="Pseudo" />
                     </div>
                     <div class="form-group">
-                        <label for="comment">Commentaire</label><br />
+                        <label for="comment">Commentaire :</label><br />
                         <textarea name="comment" id="comment"  placeholder=" Votre message"></textarea>
                     </div>
                     <div class="form-group">

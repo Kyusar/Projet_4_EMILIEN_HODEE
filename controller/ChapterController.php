@@ -7,8 +7,35 @@ function listChapter()
 {
     $chapterManager = new ChapterManager();
     $chapters = $chapterManager->getChapter();
-
     require('view/chapter.php');
+}
+
+function image($chapterId, $file)
+{
+    $chapterManager = new chapterManager();
+
+    $upload_dir = 'public/images';
+    $size_Max = 8000000;
+    $incoming_Image = $_FILES['image']['tmp_name'];
+    $img_Name = $_FILES['image']['name'];
+    $img_desc = $_FILES['image']['name'];
+    $img_Type = $_FILES['image']['type'];
+    echo(" img_ type = " . $img_Type);
+    $img_Size = $_FILES['image']['size'];
+    
+    $newImage = $chapterManager->addImage($chapterId, $img_Name, $img_Size, $img_Type, $img_desc, $incoming_Image);
+    if ($newImage === FALSE)
+    {
+        throw new Exception ('L\'image n\'a pas été upload');
+    }
+    elseif ($img_Size > $size_Max)
+    {
+        throw new Exception ('Image trop volumineuse');
+    }
+    else
+    {
+        move_uploaded_file($incoming_Image, "$upload_dir/$img_Name");
+    }
 }
 
 function chapter($chapterId)
@@ -22,12 +49,12 @@ function chapter($chapterId)
     require('view/reading_page.php');
 }
 
-
-function addChapter($chapterId, $title, $content)
+function addChapter($chapterId, $title, $content, $file)
 {
     $chapterManager = new chapterManager();
-
+    
     $newChapter = $chapterManager->createChapter($chapterId, $title, $content);
+    image($chapterId, $file);
     if ($newChapter === false)
     {
         throw new Exception('Impossible d\'ajouter le chapitre !'); 
@@ -89,4 +116,5 @@ function deletedChapter($Id)
     $delete = $chapterManager->deleteChapter($Id);
 
     header('Location: index.php?action=admin');
+    
 }

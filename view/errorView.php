@@ -5,7 +5,7 @@ ob_start();
     {
         ?>
             <h1> <?= $errorMessage; ?> </h1>
-            <a href="index.php?action=chapter"> <input type="button" id="button" value="Revenir à la selection des chapitres" style="width: 20%;"/> </a>
+            <a href="index.php?action=chapter"> <input type="button" id="button" value="Revenir à la selection des chapitres" class="fake-btn"/> </a>
         <?php
     }
     else

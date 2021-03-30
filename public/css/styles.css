@@ -27,6 +27,10 @@ html, body {
     border-top: 2px solid;
  }
 
+ .main-title
+ {
+     font-size: 4em;
+ }
  /* Page bio */
  .front_image
  {
@@ -94,6 +98,11 @@ input
     border: 2px solid black;
  }
 
+ .border-section{
+    border-top : 2px solid #fff; 
+    padding-top: 10px;
+ } 
+
  /*Creating page */
 
 .form_creation
@@ -103,12 +112,29 @@ input
 
 /*admin page */ 
 
+#card_admin
+{
+    width: 100%;
+}
 #card_admin>div>div>a
 {
     margin-top: 50px;
 }
 
+.btn-admin
+{
+    width : 50px;
+}
+.border-comment{
+    border-top: 1px outset black; 
+    padding-top: 10px;
+}
 
+/* fake command */
+.fake-btn
+{
+    width: 20%;
+}
 /* Responsive */ 
 @media (max-width: 768px) 
 {

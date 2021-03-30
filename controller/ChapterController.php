@@ -15,12 +15,11 @@ function image($chapterId, $file)
     $chapterManager = new chapterManager();
 
     $upload_dir = 'public/images';
-    $size_Max = 8000000;
+    $size_Max = 2500000;
     $incoming_Image = $_FILES['image']['tmp_name'];
     $img_Name = $_FILES['image']['name'];
     $img_desc = $_FILES['image']['name'];
     $img_Type = $_FILES['image']['type'];
-    echo(" img_ type = " . $img_Type);
     $img_Size = $_FILES['image']['size'];
     
     $newImage = $chapterManager->addImage($chapterId, $img_Name, $img_Size, $img_Type, $img_desc, $incoming_Image);
@@ -114,6 +113,8 @@ function deletedChapter($Id)
     $chapterManager = new chapterManager();
 
     $delete = $chapterManager->deleteChapter($Id);
+    
+    unlink("public/images/Logo_LRG.jpg");
 
     header('Location: index.php?action=admin');
     

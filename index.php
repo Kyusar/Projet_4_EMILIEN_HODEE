@@ -176,11 +176,6 @@ try
                 throw new Exception('Veuillez choisir un chapitre valide à supprimer');
             }
         }
-        /*elseif ($_GET['action'] == "before")
-        {
-            header('Location: ' . $_SERVER['HTTP_REFERER']);
-        }*/
-
     }
     else
     {

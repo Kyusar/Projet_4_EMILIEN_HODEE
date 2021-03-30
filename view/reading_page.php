@@ -17,18 +17,18 @@ ob_start(); ?>
 
         <div class="row">
             <div class="col">
-                <h4 style="border-top : 2px solid #fff; padding-top: 10px;"> Liste de commentaires </h4>
+                <h4 class="border-section"> Liste de commentaires </h4>
                 <?php 
                     while ($comment = $comments->fetch())
                     {
                 ?>
                         <div class="row text-left">
-                            <div class="col" style="border-top: 1px outset black; padding-top: 10px;">
-                                <strong class="lead text-uppercase"> <?= htmlspecialchars($comment['author']) ?> </strong> <em style="opacity: 50%;"> <?= $comment['comment_date_fr'] ?> </em>
+                            <div class="col border-comment">
+                                <strong class="lead text-uppercase"> <?= htmlspecialchars($comment['author']) ?> </strong> <em class="muted"> <?= $comment['comment_date_fr'] ?> </em>
                                 <p> <?= nl2br(htmlspecialchars($comment['comment'])) ?> </p>
                                 <div class="row text-right">
                                     <div class="col">
-                                    <a href="index.php?action=signaledComment&amp;id=<?= $comment['id'] ?>&amp;chapter=<?= $chapter['id'] ?>"><em style="opacity : 80%;"> Signalé ce commentaire</em> </a> 
+                                    <a href="index.php?action=signaledComment&amp;id=<?= $comment['id'] ?>&amp;chapter=<?= $chapter['id'] ?>"><em class="muted"> Signalé ce commentaire</em> </a> 
                                     </div> 
                                 </div>
                             </div>
@@ -44,7 +44,7 @@ ob_start(); ?>
 
         <div class="row">
             <div class="col">
-                <h4 style="border-top : 2px solid #fff; padding-top: 10px;"> Ajouter un commentaire </h4>
+                <h4 class="border-section"> Ajouter un commentaire </h4>
                 <form method="post" action="index.php?action=addComment&amp;id=<?= $chapter['id'] ?>">
                     <div class="form-group">
                         <label for="author">Auteur : </label><br />

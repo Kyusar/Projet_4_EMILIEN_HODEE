@@ -11,7 +11,7 @@ ob_start();
                 </div>
             </div>
             <div class="row">
-                <div class="card-deck" id="card_admin" style="width: 100%;">
+                <div class="card-deck" id="card_admin">
                     <div class="card bg-dark border-secondary">
                         <div class="card-body">
                             <h5 class="card-title"> Créer un nouveau chapitre</h5>
@@ -24,7 +24,7 @@ ob_start();
                             <form method="post" action="index.php?action=deleteChapter">
                                 <label for="id"> Chapitre à supprimer : </label> <br />
                                 <input type="number" name="id" id="id" placeholder=" N° du chapitre" /> <br />
-                                <input type="submit" class="btn btn-primary" style="width : 50px;" value="Go !"/>
+                                <input type="submit" class="btn btn-primary btn-admin" value="Go !"/>
                             </form>
                         </div>
                     </div>
@@ -34,7 +34,7 @@ ob_start();
                             <form method="post" action="index.php?action=modifChapter">
                                 <label for="id"> Chapitre à modifier : </label> <br />
                                 <input type="number" name="id" id="id" placeholder=" N° du chapitre" /> <br />
-                                <input type="submit" class="btn btn-primary" style="width : 50px;" value="Go !"/>
+                                <input type="submit" class="btn btn-primary btn-admin" value="Go !"/>
                             </form>
                         </div>
                     </div>
@@ -48,8 +48,8 @@ ob_start();
                         {
                     ?>
                             <div class="row text-left">
-                                <div class="col" style="border-top: 1px outset black; padding-top: 10px;">
-                                    <strong class="lead text-uppercase"> <?= htmlspecialchars($donnees['author']) ?> </strong> <em style="opacity: 50%;"> <?= $donnees['comment_date_fr'] ?> </em>
+                                <div class="col border-comment">
+                                    <strong class="lead text-uppercase"> <?= htmlspecialchars($donnees['author']) ?> </strong> <em class="muted"> <?= $donnees['comment_date_fr'] ?> </em>
                                     <p> <?= nl2br(htmlspecialchars($donnees['comment'])) ?> </p>
                                     <div class="row text-left">
                                         <div class="col">

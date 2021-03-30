@@ -70,9 +70,14 @@ class ChapterManager extends Manager
     public function deleteChapter($Id)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('DELETE FROM chapter, images USING chapter LEFT JOIN images ON chapter.id = images.img_id_chapter WHERE chapter.id= ?');
+        $req = $db->prepare('DELETE FROM chapter, images, comments
+        USING chapter 
+        LEFT JOIN images ON chapter.id = images.img_id_chapter
+        LEFT JOIN comments ON chapter.id = comments.id_comment
+        WHERE chapter.id= ?');
+        /*$req = $db->prepare('DELETE FROM chapter2 WHERE id = ?');*/
         $req->execute(array($Id));
-
+        
         return $req;        
     }
 }

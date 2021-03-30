@@ -11,10 +11,10 @@ ob_start(); ?>
             ?>
                 <div class="chapter-block">
                     <div class="card text-white bg-dark2 mb-3 border-secondary">
-                        <img class="card-img-top" src="public/images/<?= $donnees['img_name'] ?>" alt="<?= $donnees['img_desc'] ?>" style="max-height: 200px;" >
+                        <img class="card-img-top" src="public/images/<?= $donnees['img_name'] ?>" alt="<?= $donnees['img_desc'] ?>" >
                         <div class="card-body">
-                            <h5 class="card-title"> Chapitre <?php echo($donnees['id'])?> </h5>
-                            <p class="card-text"> <?php echo htmlspecialchars($donnees['title']) ?> </p>
+                            <h4 class="card-title"> <?php echo htmlspecialchars($donnees['title']) ?> </h5>
+                            <p class="card-text"> Chapitre <?php echo($donnees['id'])?> </p>
                             <a href="index.php?id=<?= $donnees['id'] ?>&action=reading" class="btn btn-primary"> Lire </a>
                         </div>
                         <div class="card-footer text-muted">
